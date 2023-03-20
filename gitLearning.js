@@ -12,18 +12,18 @@ Initialiser un dossier GIT :
 cd Documents/myFile
 git init
 
-Indexer vos fichiers html, css, js... :
-git add gitlearning.html gitlearning.css gitlearning.js
-
 -------------
 
+Indexer vos fichiers html, css, js... :
+git add myfile.html
+
 Créer une nouvelle version des fichiers indexés (archiver votre projet)
-git commit -m “Ajout des fichiers html, css, et js de base”
+git commit -m “Ajout du fichier html”
 
 -------------
 
 Configurer l'URL du repository dans le dépôt distant (github)
-git remote add 
+git remote add origin
 origin URL-du-repository.git
 
 Relier le dépôt local au dépôt distant :
