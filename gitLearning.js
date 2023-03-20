@@ -18,6 +18,12 @@ git init
 
 -------------
 
+Créer un ficher dans un dossier :
+mkdir myFile
+
+Déplacer un fichier dans git :
+git mv myFile targetFolder => git mv text.txt myTextFolder
+
 Indexer vos fichiers html, css, js... :
 git add myfile.html
 
@@ -46,6 +52,9 @@ git branch => l'étoile signifie que c'est la branche dans laquelle on se situe
 Créer une branche :
 git branch myBranch
 
+Supprimer une branche :
+git branch -D myBranch
+
 Sélectionner la branche dans laquelle on souhaite se situer :
 git checkout myBranch
 
@@ -59,6 +68,10 @@ Fusionner une branche avec une autre :
 Cette commande doit s'utiliser à partir de la branche dans laquelle nous voulons apporter les évolutions :
 git checkout main => on sélectionner la branche "hôte"
 git merge myBranch
+
+
+
+-----------------------------------------------------------------
 
 
 
