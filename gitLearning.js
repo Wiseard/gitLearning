@@ -16,6 +16,9 @@ Initialiser un dossier GIT :
 cd Documents/myFile
 git init
 
+Supprimer l'initialisation d'un dossier :
+rm -fr .git
+
 -------------
 
 Créer un ficher dans un dossier :
@@ -73,7 +76,21 @@ git merge myBranch
 
 -----------------------------------------------------------------
 
+A UN DEPOT DISTANT DE QUELQU'UN D'AUTRE
 
+Copier le code .git puis effectuer cette commande dans le temrinal :
+
+git remote add 'NAME' https://.../.git
+'NAME' est un nom plus court qui permettra d'appeler le dépôt plus facilement
+
+Récupérer les fichier du dépôt distant
+git pull NAME main
+
+Récupérer les branches du dépôt distant :
+git branch --all
+
+Dupliquer le contenu du dépôt distant dans le dépôt local
+git clone https://.../.git
 
 */
 
