@@ -122,5 +122,86 @@ git branch --all
 Dupliquer le contenu du dépôt distant dans le dépôt local
 git clone https://.../.git
 
+-----------------------------------------------------------------
+
+CORRIGER SES ERREURS
+
+ERREURS DE BASE 
+
+Corriger une erreur d'indexation mais non commit :
+
+Si par erreur, vous avez modifié puis indexé les fichiers de la branche MAIN sans les avoir commit,
+il est possible de 'mettre de côté' ce travail pour l'appliquer à la branche souhaité :
+
+1. Se positionner sur la branche main
+2. Effectuer un git status pour vérifier les fichiers indexés
+
+3. Sauvegarder votre travail :
+git stash
+
+4. La branche MAIN est de nouveau 'propre'
+5. Se positionner sur la branche souhaitée
+
+6. Vérifier la liste des travaux sauvegardés
+git stash list
+
+6.1 Appliquer le dernier 'stash' de la liste :
+git stash apply
+
+6.2 Appliquer un 'stash' précis :
+git stash apply stash@{0}
+
+--------------
+
+ERREURS COMMIT 
+
+Corriger une erreur après avoir commit :
+
+Si vous avez commit des fichiers sur la branch MAIN (par exemple) et que vous souhaitiez le faire sur une autre branche,
+il est possible de réparer cette erreur :
+
+1. Analyser vos commit :
+git log
+
+2. Des messages représenant vos commit devraient apparaître :
+commit 81de88bfbfbe7e38836596fe237aa691c77c00c1 (HEAD -> main, newBranch)
+Author: Florencio <florentbaleinier@gmail.com>
+Date:   Tue Mar 21 16:00:56 2023 +0100
+
+3. Récupérer l'identifiant du commit :
+81de88bfbfbe7e38836596fe237aa691c77c00c1
+
+4. Supprimer le dernier commit de la branche principale
+git reset --hard HEAD^
+Le HEAD^ indique que c'est bien le dernier commit que nous voulons supprimer.
+
+5. Se positionner sur la branche où l'on souhaitait préalablement réaliser le commit
+
+6. Appliquer le commit sur la nouvelle branche :
+git reset --hard 81de88bfbfbe7e38836596fe237aa691c77c00c1
+Il n'est pas nécessaire d'écrire l'identifiant en entier. Seuls les 8 premiers caractères sont nécessaires.
+
+--------------
+
+Modifier le message d'un commit :
+
+git commit -m "wrong message"
+
+Cette commande fonctionnera uniquement sur le dernier commit réalisé :
+git commit --amend -m "good message"
+
+--------------
+
+Oubli de fichiers dans le dernier commit :
+
+Si vous avez effectué votre commit mais que vous avez oublier des fichiers, il est possible de les rajouter après coup.
+
+1. Ajouter dans un premier temps le fichier manquant :
+git add forgottenFile.txt
+
+2. Modifier le dernier commit via cette commande :
+git commit --amend --no-edit
+La commande git commit --amend permet de modifier le dernier commit réalisé
+
 */
 
