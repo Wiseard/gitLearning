@@ -18,6 +18,8 @@ rm -r myFolder
 Vérifier les paramètres git :
 git config --list
 
+Appuyer sur 'q' équivaut à 'ECHAP'
+
 -----------------------------------------------------------------
 
 COMMANDES GIT DE BASE :
@@ -229,5 +231,29 @@ $ ssh-keygen -t rsa -b 4096 -C "yourMail@example.com"
 6. Se rendre dans son compte GitHub :
 Settings => SSH and GPG keys => New SSH Key => Coller la clé => Confirmer avec mot de passe
 
+--------------
+
+Revenir à un commit spécifique en cas d'erreur 
+
+1. Utiliser la commande
+git reflog
+Cette commande va loguer les commits ainsi que toutes les autres actions que vous avez pu faire en local
+(vos modifications de messages, vos merges, vos resets...)
+
+Aperçu d'un git reflog :
+3f33a7b (HEAD -> main, origin/main) HEAD@{0}: commit: update
+d51516d HEAD@{1}: commit: update
+538c030 HEAD@{2}: commit: update comments
+5dd572c HEAD@{3}: pull origin main: Fast-forward
+da0da4a HEAD@{4}: commit: update comments
+4040309 HEAD@{5}: checkout: moving from newname to main
+4040309 HEAD@{6}: Branch: renamed refs/heads/oldname to refs/heads/newname
+4040309 HEAD@{8}: checkout: moving from main to oldname
+
+Les chiffres en début de ligne sont ce qu'on appelle le SHA (Secure Hash Algorithm).
+Il permet d'identifier le commit.
+
+2. On revient à un commit spécifique
+git checkout 538c030
 */
 
