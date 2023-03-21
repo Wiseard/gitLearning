@@ -6,10 +6,21 @@ COMMANDES DE BASE :
 Créer un fichier
 touch myFile
 
+Supprimer un fichier :
+rm myFile
+
+Créer un dossier :
+mkdir myFolder
+
+Supprimer un dossier :
+rm -r myFolder
+
 Vérifier les paramètres git :
 git config --list
 
--------------
+-----------------------------------------------------------------
+
+COMMANDES GIT DE BASE :
 
 Initialiser un dossier GIT :
 
@@ -19,30 +30,35 @@ git init
 Supprimer l'initialisation d'un dossier :
 rm -fr .git
 
--------------
-
-Créer un ficher dans un dossier :
-mkdir myFile
-
 Déplacer un fichier dans git :
 git mv myFile targetFolder => git mv text.txt myTextFolder
 
-Indexer vos fichiers html, css, js... :
+--------------
+
+Envoyer ses fichiers dans les différentes zones du dépôt local :
+
+1. Créer vos fichiers dans le dossier initialisé
+
+2. Indexer vos fichiers (html, css, js...) :
 git add myfile.html
 
-Créer une nouvelle version des fichiers indexés (archiver votre projet)
+3. Créer une nouvelle version des fichiers indexés (archiver votre projet)
 git commit -m “Ajout du fichier html”
 
--------------
+4. Configurer l'URL du repository dans le dépôt distant (github)
+git remote add origin URL-du-repository.git
 
-Configurer l'URL du repository dans le dépôt distant (github)
-git remote add origin
-origin URL-du-repository.git
-
-Relier le dépôt local au dépôt distant :
+5. Relier le dépôt local au dépôt distant :
 git branch -M main
 
-Envoyer nos fichiers (commit) sur le dépôt distant (github)voyer 
+6. Envoyer vos fichiers (commit) sur le dépôt distant (github)
+git push -u origin main
+
+
+
+Désormais, pour chaque modification des fichiers envoyés au dépôt distant, seules ces étapes seront à effectuer :
+git add myfile.html
+git commit -m “Ajout du fichier html”
 git push -u origin main
 
 -----------------------------------------------------------------
@@ -61,7 +77,21 @@ git branch -D myBranch
 Sélectionner la branche dans laquelle on souhaite se situer :
 git checkout myBranch
 
-Créer un commit de nos fichiers présents dan sla branche :
+Renommer une branche :
+
+1. Se positionner dans la branche en question
+git checkout myBranch 
+
+2. Renommer la branch
+git branch -m newName
+
+3. Si l'ancien nom a été poussée dans le dépôt distant, on le remplace par le nouveau
+git push origin -u newName
+
+4. Puis on supprimer l'ancien nom du dépôt distant :
+git push origin --delete oldName
+
+Créer un commit de nos fichiers présents dans la branche :
 git commit -m "alternative project"
 
 Envoyer la branche au dépôt distant :
@@ -76,7 +106,7 @@ git merge myBranch
 
 -----------------------------------------------------------------
 
-A UN DEPOT DISTANT DE QUELQU'UN D'AUTRE
+ACCEDER AU DEPOT DISTANT DE QUELQU'UN D'AUTRE
 
 Copier le code .git puis effectuer cette commande dans le temrinal :
 
