@@ -255,5 +255,18 @@ Il permet d'identifier le commit.
 
 2. On revient à un commit spécifique
 git checkout 538c030
+
+--------------
+
+Examiner le contenu d’un fichier ligne par ligne et de déterminer la date à laquelle chaque ligne a été modifiée, et le nom de l’auteur des modifications :
+
+git blame myFile.txt
+Cette commande va afficher :
+- son ID
+- l'auteur
+- l'horodatage
+- le numéro de la ligne
+- le contenu de la ligne
+
 */
 
