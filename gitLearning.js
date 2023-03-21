@@ -124,9 +124,9 @@ git clone https://.../.git
 
 -----------------------------------------------------------------
 
-CORRIGER SES ERREURS
+CORRIGER SES ERREURS SUR VOTRE DEPOT LOCAL
 
-ERREURS DE BASE 
+ERREURS D'INDEXATION
 
 Corriger une erreur d'indexation mais non commit :
 
@@ -153,7 +153,7 @@ git stash apply stash@{0}
 
 --------------
 
-ERREURS COMMIT 
+ERREURS LIEES AU COMMIT 
 
 Corriger une erreur après avoir commit :
 
@@ -202,6 +202,32 @@ git add forgottenFile.txt
 2. Modifier le dernier commit via cette commande :
 git commit --amend --no-edit
 La commande git commit --amend permet de modifier le dernier commit réalisé
+
+-----------------------------------------------------------------
+
+CORRIGER SES ERREURS SUR VOTRE DEPOT DISTANT
+
+git revert HEAD^
+Permet d'annuler sont commit public en créant un nouveau commit d'annulation
+
+Note : 
+Il vaut mieux utiliser git revert  pour annuler des changements apportés à une branche publique
+et git reset pour faire de même, mais sur une branche privée. 
+
+--------------
+
+Générer une paire de clé SSH
+
+1. Exécuter la commande :
+$ ssh-keygen -t rsa -b 4096 -C "yourMail@example.com"
+
+2. Mettre un nom de fichier (ou pas) puis ENTREE
+3. Renseigner un mot de passe
+4. Se rendre dans le dossier où a été générée la paire de clé (C:\Users\VotreNomD'Utilisateur\.ssh)
+5. Récupérer la clé souhaitée (publique ou privée)
+
+6. Se rendre dans son compte GitHub :
+Settings => SSH and GPG keys => New SSH Key => Coller la clé => Confirmer avec mot de passe
 
 */
 
