@@ -77,6 +77,19 @@ git branch -D myBranch
 Sélectionner la branche dans laquelle on souhaite se situer :
 git checkout myBranch
 
+Créer un commit de nos fichiers présents dans la branche :
+git commit -m "alternative project"
+
+Envoyer la branche au dépôt distant :
+push origin myBranch
+
+Fusionner une branche avec une autre :
+Cette commande doit s'utiliser à partir de la branche dans laquelle nous voulons apporter les évolutions :
+git checkout main => on sélectionner la branche "hôte"
+git merge myBranch
+
+--------------
+
 Renommer une branche :
 
 1. Se positionner dans la branche en question
@@ -90,19 +103,6 @@ git push origin -u newName
 
 4. Puis on supprimer l'ancien nom du dépôt distant :
 git push origin --delete oldName
-
-Créer un commit de nos fichiers présents dans la branche :
-git commit -m "alternative project"
-
-Envoyer la branche au dépôt distant :
-push origin myBranch
-
-Fusionner une branche avec une autre :
-Cette commande doit s'utiliser à partir de la branche dans laquelle nous voulons apporter les évolutions :
-git checkout main => on sélectionner la branche "hôte"
-git merge myBranch
-
-
 
 -----------------------------------------------------------------
 
